@@ -1,10 +1,9 @@
 import { writeFile } from 'fs/promises'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
+import { getDirname } from '../helpers/dirnameHelper.js'
 
 const create = async () => {
-    const filePath = fileURLToPath(import.meta.url)
-    const fileDirectory = dirname(filePath)
+    const fileDirectory = getDirname(import.meta.url)
 
     try {
         const content = 'I am fresh and young'

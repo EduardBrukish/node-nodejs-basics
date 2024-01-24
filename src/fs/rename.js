@@ -1,12 +1,11 @@
 import { rename as renameFile } from 'fs/promises'
 import { existsSync } from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
-
-const filePath = fileURLToPath(import.meta.url)
-const fileDirectory = dirname(filePath)
+import { join } from 'path'
+import { getDirname } from '../helpers/dirnameHelper.js'
 
 const rename = async () => {
+    const fileDirectory = getDirname(import.meta.url)
+
     try {
         const fileToRenamePath = join(fileDirectory, 'files', 'wrongFilename.txt')
         const properFileNamePath = join(fileDirectory, 'files', 'properFilename.md')
