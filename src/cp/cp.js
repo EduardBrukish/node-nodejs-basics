@@ -5,7 +5,7 @@ import { getDirname } from '../helpers/dirnameHelper.js'
 const spawnChildProcess = async (args) => {
     
     const fileDirectory = getDirname(import.meta.url)
-    const fileToPathToSpawn = join(fileDirectory, 'files', 'script.js')
+    const filePathToSpawn = join(fileDirectory, 'files', 'script.js')
     
     const childProcess = spawn('node', [fileToPathToSpawn, ...args])
 
