@@ -7,6 +7,8 @@ const transform = async () => {
             callback(null, chunk.toString().split('').reverse().join(''))
         },
     })
+
+    console.log('Please type any text, it will be transformed')
     
     process.stdin
         .pipe(reverseDataStream)
