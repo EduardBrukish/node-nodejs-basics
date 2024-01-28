@@ -7,7 +7,7 @@ const spawnChildProcess = async (args) => {
     const fileDirectory = getDirname(import.meta.url)
     const filePathToSpawn = join(fileDirectory, 'files', 'script.js')
     
-    const childProcess = spawn('node', [fileToPathToSpawn, ...args])
+    const childProcess = spawn('node', [filePathToSpawn, ...args])
 
     process.stdin.pipe(childProcess.stdin)
     childProcess.stdout.pipe(process.stdout)

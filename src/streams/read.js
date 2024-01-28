@@ -6,7 +6,7 @@ const read = async () => {
     const fileDirectory = getDirname(import.meta.url)
     const fileNameToRead = join(fileDirectory, 'files', 'fileToRead.txt')
 
-    const fileData = await new Promise((res) => {
+    const fileData = await new Promise((res, rej) => {
         let readStream = createReadStream(fileNameToRead, 'utf8')
         let chunk = ''
 
@@ -16,6 +16,10 @@ const read = async () => {
 
         readStream.on('close', () => {
             res(chunk)
+        })
+
+        readStream.on('error', (e) => {
+            rej(e)
         })
 
     })

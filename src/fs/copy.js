@@ -4,11 +4,10 @@ import { getDirname } from '../helpers/dirnameHelper.js'
 
 const copy = async () => {
     const fileDirectory = getDirname(import.meta.url)
+    const folderPathToCopy = join(fileDirectory, 'files')
+    const destinationFolderPath = join(fileDirectory, 'files_copy')
     
     try {
-        const folderPathToCopy = join(fileDirectory, 'files')
-        const destinationFolderPath = join(fileDirectory, 'files_copy')
-        
         await access(folderPathToCopy)
         await cp(folderPathToCopy, destinationFolderPath, { recursive: true, force: false,  errorOnExist: true })
     } catch (e) {

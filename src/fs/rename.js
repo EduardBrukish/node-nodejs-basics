@@ -5,11 +5,10 @@ import { getDirname } from '../helpers/dirnameHelper.js'
 
 const rename = async () => {
     const fileDirectory = getDirname(import.meta.url)
+    const fileToRenamePath = join(fileDirectory, 'files', 'wrongFilename.txt')
+    const properFileNamePath = join(fileDirectory, 'files', 'properFilename.md')
 
     try {
-        const fileToRenamePath = join(fileDirectory, 'files', 'wrongFilename.txt')
-        const properFileNamePath = join(fileDirectory, 'files', 'properFilename.md')
-
         if(existsSync(properFileNamePath)) {
             throw new Error()
         }

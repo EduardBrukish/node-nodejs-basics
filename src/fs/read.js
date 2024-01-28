@@ -4,10 +4,9 @@ import { getDirname } from '../helpers/dirnameHelper.js'
 
 const read = async () => {
     const fileDirectory = getDirname(import.meta.url)
+    const filePathToRead = join(fileDirectory, 'files', 'fileToRead.txt')
 
     try {
-        const filePathToRead = join(fileDirectory, 'files', 'fileToRead.txt')
-
         const content = await readFile(filePathToRead, {encoding: 'utf8'})
         console.log(content)
     } catch (e) {
